@@ -75,3 +75,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Filament Plugins
 [https://filamentphp.com/plugins](https://filamentphp.com/plugins)
+- Run `composer require filament/spatie-laravel-media-library-plugin` (remove version)
+- Publish the migration through `php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"`
+- Run `php artisan migrate`
+- Model had to implement HasMedia interface [read more here...](https://spatie.be/docs/laravel-medialibrary/v10/basic-usage/preparing-your-model)

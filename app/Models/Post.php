@@ -8,12 +8,18 @@ use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
-    protected $fillable = ['category_id', 'title', 'slug', 'content', 'is_published'];
+    protected $fillable = ['category_id', 'title', 'slug', 'content', 'is_published', 'thumbnail'];
+
+    protected $casts = [
+        'is_published' => 'boolean'
+    ];
 
     public function category(): BelongsTo
     {
