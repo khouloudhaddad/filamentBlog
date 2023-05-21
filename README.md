@@ -86,5 +86,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Relations Manager
 - php artisan make:filament-has-many CategoryResource posts title
-- php artisan make:filament-belongs-to-many TagResource posts title
+- php artisan make:filament-belongs-to-many PostResource tags name
 - php artisan make:filament-belongs-to-many TagResource posts title
