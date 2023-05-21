@@ -21,8 +21,9 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\BooleanColumn;
-use Filament\Tables\Columns\ImageColumn;
-use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
+
 
 
 class PostResource extends Resource
@@ -45,9 +46,7 @@ class PostResource extends Resource
                     $set('slug', Str::slug($state));
                 }),
                 TextInput::make('slug')->required(),
-                FileUpload::make('thumbnail')
-                ->directory('thumbs')
-                ,
+                SpatieMediaLibraryFileUpload::make('thumbnail')->collection('posts'),
                 RichEditor::make('content'),
                 Toggle::make('is_published')
             ])
@@ -62,7 +61,7 @@ class PostResource extends Resource
                 TextColumn::make('title')->limit(50)->sortable(),
                 TextColumn::make('slug')->limit(50),
                 BooleanColumn::make('is_published'),
-                ImageColumn::make('thumbnail'),
+                SpatieMediaLibraryImageColumn::make('thumbnail'),
                 TextColumn::make('created_at')->dateTime()
             ])
             ->filters([
