@@ -83,3 +83,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Fix file upload
 - Run `php artisan storage:link`
 - Edit `APP_URL=localhost:8000` in .env file
+
+## Relations Manager
+- php artisan make:filament-has-many CategoryResource posts title
+- php artisan make:filament-belongs-to-many TagResource posts title
+- php artisan make:filament-belongs-to-many TagResource posts title
