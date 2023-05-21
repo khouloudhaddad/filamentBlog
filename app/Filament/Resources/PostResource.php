@@ -24,8 +24,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\BooleanColumn;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
-
-
+use Filament\Tables\Filters\Filter;
 
 class PostResource extends Resource
 {
@@ -59,14 +58,19 @@ class PostResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('id')->sortable(),
-                TextColumn::make('title')->limit(50)->sortable(),
+                TextColumn::make('title')->limit(50)->sortable()->searchable(),
                 TextColumn::make('slug')->limit(50),
                 BooleanColumn::make('is_published'),
                 SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts'),
                 TextColumn::make('created_at')->dateTime()
             ])
             ->filters([
-                //
+                Filter::make('Published')
+                    ->query(fn (Builder $query): Builder => $query->where('is_published', true)),
+                Filter::make('Unpublished')
+                    ->query(fn (Builder $query): Builder => $query->where('is_published', false)),
+                Tables\Filters\SelectFilter::make('category')->relationship('category', 'name')
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
