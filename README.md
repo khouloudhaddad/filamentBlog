@@ -70,3 +70,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Run migration
 - Run `php artisan make:filament-user` and create a user 
 - Run the laravel server && Navigate to localhost:8000/admin to access the dashboard
+- Edit migrations &nd Models
+- Run `php artisan make:filament-resource <ResourceName>`
