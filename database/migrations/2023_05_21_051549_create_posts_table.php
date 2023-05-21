@@ -18,7 +18,6 @@ return new class extends Migration
             $table->text('content');
             $table->boolean('is_published')->default(false);
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->string('thumbnail');
             $table->timestamps();
         });
     }

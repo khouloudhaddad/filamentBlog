@@ -79,3 +79,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - Publish the migration through `php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="migrations"`
 - Run `php artisan migrate`
 - Model had to implement HasMedia interface [read more here...](https://spatie.be/docs/laravel-medialibrary/v10/basic-usage/preparing-your-model)
+
+## Fix file upload
+- Run `php artisan storage:link`
+- Edit `APP_URL=localhost:8000` in .env file

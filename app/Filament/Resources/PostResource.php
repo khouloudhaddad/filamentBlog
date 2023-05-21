@@ -61,7 +61,7 @@ class PostResource extends Resource
                 TextColumn::make('title')->limit(50)->sortable(),
                 TextColumn::make('slug')->limit(50),
                 BooleanColumn::make('is_published'),
-                SpatieMediaLibraryImageColumn::make('thumbnail'),
+                SpatieMediaLibraryImageColumn::make('thumbnail')->collection('posts'),
                 TextColumn::make('created_at')->dateTime()
             ])
             ->filters([
