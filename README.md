@@ -88,3 +88,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 - php artisan make:filament-has-many CategoryResource posts title
 - php artisan make:filament-belongs-to-many PostResource tags name
 - php artisan make:filament-belongs-to-many TagResource posts title
+
+## Adding Global Search for Admin panel
+[https://filamentphp.com/docs/2.x/admin/resources/global-search](https://filamentphp.com/docs/2.x/admin/resources/global-search)
